@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { contactInfo } from '../data/mock';
-import { Mail, MapPin, Clock, Send, ArrowRight } from 'lucide-react';
+import { Mail, MapPin, Clock, Send, ArrowRight, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 
 export const ContactSection = () => {
@@ -12,6 +12,7 @@ export const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,11 +23,53 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      // Using Web3Forms - free email service
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'YOUR_ACCESS_KEY', // User needs to replace this
+          to_email: contactInfo.email,
+          from_name: formData.name,
+          subject: `New Contact from ${formData.name} - Anel Website`,
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || 'Not provided',
+          service: formData.service || 'Not specified',
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        toast.success('Message sent successfully! We\'ll get back to you soon.');
+        setSubmitted(true);
+        setFormData({ name: '', email: '', company: '', service: '', message: '' });
+      } else {
+        // Fallback: Open email client directly
+        const mailtoLink = `mailto:${contactInfo.email}?subject=${encodeURIComponent(`New Contact from ${formData.name}`)}&body=${encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'Not provided'}\nService Interested: ${formData.service || 'Not specified'}\n\nMessage:\n${formData.message}`
+        )}`;
+        window.location.href = mailtoLink;
+        toast.success('Opening your email client...');
+        setSubmitted(true);
+        setFormData({ name: '', email: '', company: '', service: '', message: '' });
+      }
+    } catch (error) {
+      // Fallback: Open email client directly
+      const mailtoLink = `mailto:${contactInfo.email}?subject=${encodeURIComponent(`New Contact from ${formData.name}`)}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'Not provided'}\nService Interested: ${formData.service || 'Not specified'}\n\nMessage:\n${formData.message}`
+      )}`;
+      window.location.href = mailtoLink;
+      toast.success('Opening your email client...');
+      setSubmitted(true);
+      setFormData({ name: '', email: '', company: '', service: '', message: '' });
+    }
     
-    toast.success('Message sent successfully! We\'ll get back to you soon.');
-    setFormData({ name: '', email: '', company: '', service: '', message: '' });
     setIsSubmitting(false);
   };
 
@@ -86,104 +129,122 @@ export const ContactSection = () => {
 
           {/* Right Content - Form */}
           <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-xl font-semibold text-[#1a1a1a] mb-6">Send a Message</h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-sm font-medium text-[#555555] mb-2">
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-[#1a1a1a] placeholder-gray-400 transition-all duration-300"
-                    placeholder="John Doe"
-                  />
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center h-full py-12 text-center">
+                <div className="w-16 h-16 rounded-full bg-[#A2CD3C]/10 flex items-center justify-center mb-6">
+                  <CheckCircle size={32} className="text-[#A2CD3C]" />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-[#555555] mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-[#1a1a1a] placeholder-gray-400 transition-all duration-300"
-                    placeholder="john@company.com"
-                  />
-                </div>
+                <h3 className="text-2xl font-bold text-[#1a1a1a] mb-3">Thank You!</h3>
+                <p className="text-[#555555] mb-6">Your message has been sent. We'll get back to you soon!</p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="text-[#A2CD3C] font-medium hover:underline"
+                >
+                  Send another message
+                </button>
               </div>
+            ) : (
+              <>
+                <h3 className="text-xl font-semibold text-[#1a1a1a] mb-6">Send a Message</h3>
+                
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm font-medium text-[#555555] mb-2">
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 text-[#1a1a1a] placeholder-gray-400 transition-all duration-300"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#555555] mb-2">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 text-[#1a1a1a] placeholder-gray-400 transition-all duration-300"
+                        placeholder="john@company.com"
+                      />
+                    </div>
+                  </div>
 
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-sm font-medium text-[#555555] mb-2">
-                    Company
-                  </label>
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-[#1a1a1a] placeholder-gray-400 transition-all duration-300"
-                    placeholder="Your company"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-[#555555] mb-2">
-                    Service Interested In
-                  </label>
-                  <select
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-[#1a1a1a] transition-all duration-300 bg-white"
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm font-medium text-[#555555] mb-2">
+                        Company
+                      </label>
+                      <input
+                        type="text"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 text-[#1a1a1a] placeholder-gray-400 transition-all duration-300"
+                        placeholder="Your company"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#555555] mb-2">
+                        Service Interested In
+                      </label>
+                      <select
+                        name="service"
+                        value={formData.service}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 text-[#1a1a1a] transition-all duration-300 bg-white"
+                      >
+                        <option value="">Select a service</option>
+                        <option value="Brand & Visual Identity">Brand & Visual Identity</option>
+                        <option value="Media Design & Content">Media Design & Content</option>
+                        <option value="Campaign & Creative Direction">Campaign & Creative Direction</option>
+                        <option value="Social Media Management">Social Media Management</option>
+                        <option value="Event Branding">Event Branding</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-[#555555] mb-2">
+                      Your Message *
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={5}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 text-[#1a1a1a] placeholder-gray-400 resize-none transition-all duration-300"
+                      placeholder="Tell us about your project..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    <option value="">Select a service</option>
-                    <option value="brand">Brand & Visual Identity</option>
-                    <option value="media">Media Design & Content</option>
-                    <option value="campaign">Campaign & Creative Direction</option>
-                    <option value="social">Social Media Management</option>
-                    <option value="event">Event Branding</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-[#555555] mb-2">
-                  Your Message *
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 text-[#1a1a1a] placeholder-gray-400 resize-none transition-all duration-300"
-                  placeholder="Tell us about your project..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? (
-                  <>Sending...</>
-                ) : (
-                  <>
-                    Send Message
-                    <Send size={18} />
-                  </>
-                )}
-              </button>
-            </form>
+                    {isSubmitting ? (
+                      <>Sending...</>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send size={18} />
+                      </>
+                    )}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
       </div>
