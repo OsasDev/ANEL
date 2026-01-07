@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { stats } from '../data/mock';
 
 export const HeroSection = () => {
   const handleNavClick = (e, href) => {
@@ -61,15 +62,15 @@ export const HeroSection = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-gray-200 animate-fade-in-up delay-400">
             <div>
-              <p className="text-3xl md:text-4xl font-bold text-[#A2CD3C]">50+</p>
+              <p className="text-3xl md:text-4xl font-bold text-[#A2CD3C]">{stats.projectsCompleted}</p>
               <p className="text-sm text-[#555555] mt-1">Projects Completed</p>
             </div>
             <div>
-              <p className="text-3xl md:text-4xl font-bold text-[#A2CD3C]">98%</p>
+              <p className="text-3xl md:text-4xl font-bold text-[#A2CD3C]">{stats.clientSatisfaction}</p>
               <p className="text-sm text-[#555555] mt-1">Client Satisfaction</p>
             </div>
             <div>
-              <p className="text-3xl md:text-4xl font-bold text-[#A2CD3C]">5+</p>
+              <p className="text-3xl md:text-4xl font-bold text-[#A2CD3C]">{stats.yearsExperience}</p>
               <p className="text-sm text-[#555555] mt-1">Years Experience</p>
             </div>
           </div>
