@@ -1,5 +1,6 @@
 import React from 'react';
 import { Target, Lightbulb, TrendingUp } from 'lucide-react';
+import { clientLogos } from '../data/mock';
 
 const pillars = [
   {
