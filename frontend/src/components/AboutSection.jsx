@@ -64,6 +64,28 @@ export const AboutSection = () => {
         
         {/* Clients Section */}
         <div className="mt-24">
+          <h3 className="text-lg font-semibold text-[#1a1a1a] text-center mb-2">Our Clients</h3>
+          <p className="text-center text-[#555555] max-w-2xl mx-auto mb-12">
+            Trusted by brands across various industries to deliver exceptional media solutions.
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16">
+            {clientLogos.map((client) => (
+              <div
+                key={client.name}
+                className="grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+              >
+                <img 
+                  src={client.logo} 
+                  alt={client.name}
+                  className="h-16 md:h-20 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Who We Work With */}
+        <div className="mt-24">
           <h3 className="text-lg font-semibold text-[#1a1a1a] text-center mb-2">Brands, Institutions & Creators</h3>
           <p className="text-center text-[#555555] max-w-2xl mx-auto mb-12">
             We work with startups, corporate brands, educational institutions, NGOs, and personal brands. 
