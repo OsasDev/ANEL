@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { portfolioProjects, portfolioCategories } from '../data/mock';
+import { portfolioProjects, portfolioCategories, socialLinks } from '../data/mock';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 
 export const PortfolioSection = () => {
