@@ -145,23 +145,31 @@ export const teamMembers = [
   {
     id: 1,
     name: "Emmanuel Ojodun",
-    role: "Creative Director & Lead Designer",
+    role: "Creative Director",
     summary: "Leads design strategy, brand direction, and major creative projects.",
     image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/xekaj7n8_WhatsApp%20Image%202025-12-20%20at%2010.49.06_a89466d0.jpg",
     linkedin: "https://www.linkedin.com/in/emmanuelojodun/"
   },
   {
     id: 2,
-    name: "Mofe Richard",
-    role: "Business and Brand Strategist",
-    summary: "Crafts compelling brand narratives and strategic positioning.",
-    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/tafv2sk3_Mofe%20Richard.jpg",
-    linkedin: "https://www.linkedin.com/in/mofe-richard-0a5849234/"
+    name: "Eunice Aimiuwu",
+    role: "Business and Data Strategist",
+    summary: "Drives data-informed decisions and strategic business insights.",
+    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/hjt542li_EUNICE.jpeg",
+    linkedin: "https://www.linkedin.com/in/eunice-a-04a041140"
   },
   {
     id: 3,
+    name: "Mofe Richard",
+    role: "Business and Brand Strategist",
+    summary: "Crafts compelling brand narratives and strategic positioning.",
+    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/ky5p1skm_MOFE.jpeg",
+    linkedin: "https://www.linkedin.com/in/mofe-richard-0a5849234/"
+  },
+  {
+    id: 4,
     name: "Tabeel Agada",
-    role: "Content Marketer",
+    role: "Product Evangelist",
     summary: "Creates engaging content that resonates with target audiences.",
     image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/ds677jbw_Tabeel.jpeg",
     linkedin: "https://www.linkedin.com/in/tabeel-agada/"
