@@ -147,28 +147,21 @@ export const teamMembers = [
     name: "Emmanuel Ojodun",
     role: "Creative Director & Lead Designer",
     summary: "Leads design strategy, brand direction, and major creative projects.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
+    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/ma7q5ow9_Emmanuel%20Ojodun.jpg"
   },
   {
     id: 2,
-    name: "Eunice Aimiuwu",
-    role: "Business and Data Analyst",
-    summary: "Drives data-informed decisions and business insights.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80"
-  },
-  {
-    id: 3,
     name: "Mofe Richard",
     role: "Business and Brand Strategist",
     summary: "Crafts compelling brand narratives and strategic positioning.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80"
+    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/tafv2sk3_Mofe%20Richard.jpg"
   },
   {
-    id: 4,
+    id: 3,
     name: "Tabeel Agada",
     role: "Content Marketer",
     summary: "Creates engaging content that resonates with target audiences.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"
+    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/ds677jbw_Tabeel.jpeg"
   }
 ];
 
