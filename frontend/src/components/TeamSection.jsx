@@ -1,6 +1,6 @@
 import React from 'react';
 import { teamMembers } from '../data/mock';
-import { Linkedin, Twitter, Mail } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 
 export const TeamSection = () => {
   return (
@@ -20,8 +20,8 @@ export const TeamSection = () => {
         </div>
 
         {/* Team Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member, index) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {teamMembers.map((member) => (
             <div
               key={member.id}
               className="group"
@@ -34,26 +34,18 @@ export const TeamSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 
-                {/* Hover overlay with social links */}
+                {/* Hover overlay with LinkedIn link */}
                 <div className="absolute inset-0 bg-[#A2CD3C]/80 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#A2CD3C] transition-colors duration-300"
-                  >
-                    <Linkedin size={18} />
-                  </a>
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#A2CD3C] transition-colors duration-300"
-                  >
-                    <Twitter size={18} />
-                  </a>
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#A2CD3C] transition-colors duration-300"
-                  >
-                    <Mail size={18} />
-                  </a>
+                  {member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#A2CD3C] transition-colors duration-300"
+                    >
+                      <Linkedin size={22} />
+                    </a>
+                  )}
                 </div>
                 
                 {/* Name overlay */}
