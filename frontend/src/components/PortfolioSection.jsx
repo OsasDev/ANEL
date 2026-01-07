@@ -90,7 +90,7 @@ export const PortfolioSection = () => {
         {/* CTA */}
         <div className="text-center mt-12">
           <a
-            href="https://behance.net"
+            href={socialLinks.behance}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-[#A2CD3C] font-semibold hover:gap-3 transition-all duration-300"
