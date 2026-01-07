@@ -18,7 +18,6 @@
 /* Service card gradient border */
 .service-card {
   position: relative;
-  background: white;
   border-radius: 16px;
   overflow: hidden;
 }
