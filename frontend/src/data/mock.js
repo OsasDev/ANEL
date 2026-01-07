@@ -216,10 +216,6 @@ export const clientLogos = [
     logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/mmqj9qgs_Chadash.png"
   },
   {
-    name: "Abundant Acres",
-    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/adprru3l_Abundant%20Acres16%20%281%29.png"
-  },
-  {
     name: "Appettie Food",
     logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/n3072y87_Appettie%20Food.png"
   },
@@ -241,7 +237,7 @@ export const clientLogos = [
   },
   {
     name: "Ojoduworks",
-    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/zrtabcop_Ojoduworkss%20logo%20%281%29.png"
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/upgieffh_Ojoduworks%20logo16%20%281%29.png"
   },
   {
     name: "Toplead",
