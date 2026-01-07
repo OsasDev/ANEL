@@ -147,21 +147,24 @@ export const teamMembers = [
     name: "Emmanuel Ojodun",
     role: "Creative Director & Lead Designer",
     summary: "Leads design strategy, brand direction, and major creative projects.",
-    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/ma7q5ow9_Emmanuel%20Ojodun.jpg"
+    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/xekaj7n8_WhatsApp%20Image%202025-12-20%20at%2010.49.06_a89466d0.jpg",
+    linkedin: "https://www.linkedin.com/in/emmanuelojodun/"
   },
   {
     id: 2,
     name: "Mofe Richard",
     role: "Business and Brand Strategist",
     summary: "Crafts compelling brand narratives and strategic positioning.",
-    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/tafv2sk3_Mofe%20Richard.jpg"
+    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/tafv2sk3_Mofe%20Richard.jpg",
+    linkedin: "https://www.linkedin.com/in/mofe-richard-0a5849234/"
   },
   {
     id: 3,
     name: "Tabeel Agada",
     role: "Content Marketer",
     summary: "Creates engaging content that resonates with target audiences.",
-    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/ds677jbw_Tabeel.jpeg"
+    image: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/ds677jbw_Tabeel.jpeg",
+    linkedin: "https://www.linkedin.com/in/tabeel-agada/"
   }
 ];
 
@@ -189,9 +192,10 @@ export const contactInfo = {
 };
 
 export const socialLinks = {
-  instagram: "https://instagram.com/anel",
-  linkedin: "https://linkedin.com/company/anel",
-  twitter: "https://x.com/anel"
+  instagram: "https://www.instagram.com/anelltd?igsh=MTBmamFtOWF0ZWUwdw==",
+  linkedin: "https://www.linkedin.com/company/anelltd/",
+  twitter: "https://x.com/OjodunEmmanuel",
+  behance: "https://www.behance.net/aneldesigns"
 };
 
 export const clientLogos = [
@@ -204,8 +208,8 @@ export const clientLogos = [
     logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/mmqj9qgs_Chadash.png"
   },
   {
-    name: "Abundant Acre",
-    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/sirdxnqq_Abundant%20Acre%20black.png"
+    name: "Abundant Acres",
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/nnvz3gdu_Abundant%20Acres16.png"
   },
   {
     name: "Appettie Food",
@@ -220,3 +224,17 @@ export const clientLogos = [
     logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/aq77vyhg_WRITERHOLICS%202024%20blue.png"
   }
 ];
+
+// Company stats
+export const stats = {
+  projectsCompleted: "40+",
+  clientSatisfaction: "98%",
+  yearsExperience: "5+"
+};
+
+// Company pillars
+export const companyPillars = {
+  vision: "To inspire clarity and purpose in every brand story.",
+  mission: "To help brands communicate clearly and grow through strategic media and creative storytelling.",
+  approach: "Human-centric, insight-driven, and outcome-oriented."
+};
