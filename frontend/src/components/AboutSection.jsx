@@ -1,22 +1,22 @@
 import React from 'react';
 import { Target, Lightbulb, TrendingUp } from 'lucide-react';
-import { clientLogos } from '../data/mock';
+import { clientLogos, companyPillars } from '../data/mock';
 
 const pillars = [
   {
     icon: Target,
     title: 'Vision',
-    description: 'To inspire clarity and purpose in every brand story.'
+    description: companyPillars.vision
   },
   {
     icon: Lightbulb,
     title: 'Mission',
-    description: 'Deliver intelligent design solutions that drive measurable results.'
+    description: companyPillars.mission
   },
   {
     icon: TrendingUp,
     title: 'Approach',
-    description: 'Human-centric, insight-driven, and outcome-oriented.'
+    description: companyPillars.approach
   }
 ];
 
