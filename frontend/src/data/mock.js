@@ -217,5 +217,13 @@ export const clientLogos = [
   {
     name: "Appettie Food",
     logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/n3072y87_Appettie%20Food.png"
+  },
+  {
+    name: "Tanbimex Pharmacy",
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/6w4b7w0a_Tanbimex%20logo16.png"
+  },
+  {
+    name: "Writerholics",
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/aq77vyhg_WRITERHOLICS%202024%20blue.png"
   }
 ];
