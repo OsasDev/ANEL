@@ -200,3 +200,22 @@ export const socialLinks = {
   linkedin: "https://linkedin.com/company/anel",
   twitter: "https://x.com/anel"
 };
+
+export const clientLogos = [
+  {
+    name: "JMK Accounting",
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/ho5uj9r6_JMK%20BLACK.png"
+  },
+  {
+    name: "Chadash",
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/mmqj9qgs_Chadash.png"
+  },
+  {
+    name: "Abundant Acre",
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/sirdxnqq_Abundant%20Acre%20black.png"
+  },
+  {
+    name: "Appettie Food",
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/n3072y87_Appettie%20Food.png"
+  }
+];
