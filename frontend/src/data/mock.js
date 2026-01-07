@@ -217,7 +217,7 @@ export const clientLogos = [
   },
   {
     name: "Abundant Acres",
-    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/nnvz3gdu_Abundant%20Acres16.png"
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/adprru3l_Abundant%20Acres16%20%281%29.png"
   },
   {
     name: "Appettie Food",
@@ -230,6 +230,22 @@ export const clientLogos = [
   {
     name: "Writerholics",
     logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/aq77vyhg_WRITERHOLICS%202024%20blue.png"
+  },
+  {
+    name: "Yes You Can Education",
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/oqa56cns_YESYOUCAN%20logo.png"
+  },
+  {
+    name: "JONAPWD",
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/nogad3gj_JONAPWD%20LOGO%20%281%29.png"
+  },
+  {
+    name: "Ojoduworks",
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/zrtabcop_Ojoduworkss%20logo%20%281%29.png"
+  },
+  {
+    name: "Toplead",
+    logo: "https://customer-assets.emergentagent.com/job_anel-showcase/artifacts/0x6ulpke_Toplead%20logo%20%281%29.png"
   }
 ];
 
