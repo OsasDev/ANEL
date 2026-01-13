@@ -8,7 +8,7 @@ export const TestimonialsSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 8000); // Longer interval for longer quotes
     return () => clearInterval(interval);
   }, []);
 
@@ -43,17 +43,20 @@ export const TestimonialsSection = () => {
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               <div className="flex">
-                {testimonials.map((testimonial, index) => (
+                {testimonials.map((testimonial) => (
                   <div
                     key={testimonial.id}
                     className="w-full flex-shrink-0 px-4"
                   >
-                    <blockquote className="text-2xl md:text-3xl lg:text-4xl text-white font-light leading-relaxed text-center mb-8">
+                    <blockquote className="text-xl md:text-2xl text-white font-light leading-relaxed text-center mb-8">
                       "{testimonial.quote}"
                     </blockquote>
                     <div className="text-center">
                       <p className="text-[#A2CD3C] font-semibold text-lg">{testimonial.name}</p>
-                      <p className="text-gray-400">{testimonial.role}, {testimonial.company}</p>
+                      <p className="text-gray-400">
+                        {testimonial.role}
+                        {testimonial.company && `, ${testimonial.company}`}
+                      </p>
                     </div>
                   </div>
                 ))}
