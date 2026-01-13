@@ -1,16 +1,11 @@
-import React, { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useState } from 'react';
 import { contactInfo } from '../data/mock';
 import { Mail, MapPin, Clock, Send, ArrowRight, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 
-// EmailJS configuration - you'll need to set these up at emailjs.com
-const EMAILJS_SERVICE_ID = 'service_anel'; // Replace with your EmailJS service ID
-const EMAILJS_TEMPLATE_ID = 'template_contact'; // Replace with your EmailJS template ID
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS public key
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqqylye';
 
 export const ContactSection = () => {
-  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -31,36 +26,31 @@ export const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      // Try EmailJS first
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company || 'Not provided',
-        service: formData.service || 'Not specified',
-        message: formData.message,
-        to_email: contactInfo.email,
-      };
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || 'Not provided',
+          service: formData.service || 'Not specified',
+          message: formData.message,
+        }),
+      });
 
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
-      );
-      
-      toast.success('Message sent successfully! We\'ll get back to you soon.');
-      setSubmitted(true);
-      setFormData({ name: '', email: '', company: '', service: '', message: '' });
+      if (response.ok) {
+        toast.success('Message sent successfully! We\'ll get back to you soon.');
+        setSubmitted(true);
+        setFormData({ name: '', email: '', company: '', service: '', message: '' });
+      } else {
+        throw new Error('Form submission failed');
+      }
     } catch (error) {
-      console.log('EmailJS error, falling back to mailto:', error);
-      // Fallback: Open email client directly
-      const mailtoLink = `mailto:${contactInfo.email}?subject=${encodeURIComponent(`New Contact from ${formData.name}`)}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'Not provided'}\nService Interested: ${formData.service || 'Not specified'}\n\nMessage:\n${formData.message}`
-      )}`;
-      window.location.href = mailtoLink;
-      toast.success('Opening your email client...');
-      setSubmitted(true);
-      setFormData({ name: '', email: '', company: '', service: '', message: '' });
+      console.error('Form error:', error);
+      toast.error('Something went wrong. Please try again or email us directly.');
     }
     
     setIsSubmitting(false);
@@ -140,7 +130,7 @@ export const ContactSection = () => {
               <>
                 <h3 className="text-xl font-semibold text-[#1a1a1a] mb-6">Send a Message</h3>
                 
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-medium text-[#555555] mb-2">
