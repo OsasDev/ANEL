@@ -120,23 +120,30 @@ export const clientTypes = [
 export const testimonials = [
   {
     id: 1,
-    quote: "Anel radically improved our brand messaging — the engagement uplift was visible within weeks.",
-    name: "Sarah Adeyemi",
-    company: "TechStart Nigeria",
-    role: "CEO"
+    quote: "Working with Anel has been productive in building my coaching business. As a visionary, I needed someone who could truly comprehend my vision and interpret it into compelling design. From flyers and logos to my complete branding package and landing pages, Anel delivered work that not only captivates but communicates my vision clearly. What stands out most is their creativity, professionalism, and ability to bring my ideas to life.",
+    name: "Esther Popoola",
+    company: "Toplead",
+    role: "Lead Coach"
   },
   {
     id: 2,
-    quote: "Their process is strategic and creative — always deliverables that exceed expectations.",
-    name: "Michael Okonkwo",
-    company: "GreenLife Foods",
-    role: "Marketing Director"
+    quote: "I've had the pleasure of working with Anel on several projects, and every experience has been exceptional. They consistently deliver designs that are not only visually stunning but also strategically aligned with brand goals. Their professionalism, creativity, and attention to detail make them reliable for any business looking to elevate its visual presence.",
+    name: "Edoja Richard",
+    company: "Ignite Conference",
+    role: "Convener"
   },
   {
     id: 3,
-    quote: "Working with Anel transformed how we connect with our audience. Truly exceptional work.",
-    name: "Funke Ajayi",
-    company: "Urban Fashion Co.",
+    quote: "Anel is very easy to work with.",
+    name: "Olayinka Philip-Aina",
+    company: "",
+    role: "Business Consultant"
+  },
+  {
+    id: 4,
+    quote: "Anel is a truly exceptional brand, distinguished by its professionalism and creative excellence. Their swift turnaround, meticulous attention to detail, and unwavering commitment to customer satisfaction set them in a league of their own, making them my first choice for every project.",
+    name: "Ndifreke George",
+    company: "WRITERHOLICS",
     role: "Founder"
   }
 ];
